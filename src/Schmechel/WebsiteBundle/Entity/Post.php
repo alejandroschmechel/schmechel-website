@@ -54,7 +54,7 @@ class Post
      *
      * @ORM\Column(name="created_at	'", type="datetime")
      */
-    private $createdAt	';
+    private $createdAt;
 
     /**
      * @var \DateTime
