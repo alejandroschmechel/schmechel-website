@@ -1,0 +1,5 @@
+schmechel_website:
+    resource: "@SchmechelWebsiteBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
