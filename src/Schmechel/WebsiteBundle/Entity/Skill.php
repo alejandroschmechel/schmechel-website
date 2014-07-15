@@ -42,6 +42,12 @@ class Skill
      */
     private $skillCategoryId;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="SkillCategory", inversedBy="skills")
+     * @ORM\JoinColumn(name="skill_category_id", referencedColumnName="id")
+     */
+    protected $category;
+
 
     /**
      * Get id
@@ -120,5 +126,26 @@ class Skill
     public function getSkillCategoryId()
     {
         return $this->skillCategoryId;
+    }
+
+    /**
+     * Get category
+     *
+     * @return integer 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @return integer 
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
     }
 }

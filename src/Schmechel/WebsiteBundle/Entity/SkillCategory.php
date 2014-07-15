@@ -3,6 +3,7 @@
 namespace Schmechel\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * SkillCategory
@@ -34,6 +35,16 @@ class SkillCategory
      * @ORM\Column(name="percentage", type="integer")
      */
     private $percentage;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Skill", mappedBy="SkillCategory")
+     */
+    protected $skills;
+
+    public function __construct()
+    {
+        $this->skills = new ArrayCollection();
+    }
 
 
     /**
@@ -90,5 +101,10 @@ class SkillCategory
     public function getPercentage()
     {
         return $this->percentage;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
