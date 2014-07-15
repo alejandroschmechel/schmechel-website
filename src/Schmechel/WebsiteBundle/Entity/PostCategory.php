@@ -28,6 +28,16 @@ class PostCategory
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="postCategory")
+     */
+    protected $posts;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
 
     /**
      * Get id

@@ -52,7 +52,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at	'", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
@@ -70,6 +70,36 @@ class Post
      */
     private $postCategoryId;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PostCategory", inversedBy="posts")
+     * @ORM\JoinColumn(name="post_category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+     /**
+     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="posts")
+     */
+    protected $tags;
+
+    /**
+     * Add tags
+     *
+     * @param Schmechel\WebsiteBundle\Entity\Tag $tags
+     */
+    public function addTags(\Schmechel\WebsiteBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 
     /**
      * Get id
@@ -174,26 +204,26 @@ class Post
     }
 
     /**
-     * Set createdAt	'
+     * Set createdAt'
      *
-     * @param \DateTime $createdAt	'
+     * @param \DateTime $createdAt'
      * @return Post
      */
-    public function setCreatedAt	'($createdAt	')
+    public function setCreatedAt($createdAt)
     {
-        $this->createdAt	' = $createdAt	';
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get createdAt	'
+     * Get createdAt'
      *
      * @return \DateTime 
      */
-    public function getCreatedAt	'()
+    public function getCreatedAt()
     {
-        return $this->createdAt	';
+        return $this->createdAt;
     }
 
     /**

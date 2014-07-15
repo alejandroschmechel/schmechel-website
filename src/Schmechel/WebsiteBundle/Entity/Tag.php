@@ -28,6 +28,35 @@ class Tag
      */
     private $name;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Post", inversedBy="tags", cascade={"persist"})
+     * @ORM\JoinTable(name="Tag_Post",
+     * joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     * )
+     */
+    private $posts;
+
+    /**
+     * Add posts
+     *
+     * @param Schmechel\WebsiteBundle\Entity\Post $posts
+     */
+    public function addPosts(\Ako\StoreBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+    }
+
+    /**
+     * Get posts
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
 
     /**
      * Get id
