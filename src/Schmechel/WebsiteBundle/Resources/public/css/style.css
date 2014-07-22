@@ -1,0 +1,30 @@
+body {
+    margin:50px 0px; padding:0px;
+    text-align:center;
+}
+
+#main-box{
+    width:80%;
+    height: 80%;
+    margin:0px auto;
+    text-align:left;
+    padding:15px;
+    border:2px dashed #333;
+    background-color: #000;
+}
+
+#navigation {
+    position: relative;
+    width: 222px;
+    height: 500px;
+    border-right: 1px solid #ccc; 
+}
+
+a {
+   color: #282828;
+}
+
+li.active {
+    background-color: #282828;
+    color: #fff;
+}

@@ -23,8 +23,8 @@ header,
 hgroup,
 main,
 nav,
-section,
-summary {
+section
+,summary {
   display: block;
 }
 audio,
@@ -915,7 +915,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #282828;
   text-decoration: underline;
 }
 a:focus {
